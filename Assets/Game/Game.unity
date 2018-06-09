@@ -174,7 +174,7 @@ MonoBehaviour:
   playT: {fileID: 576088890}
   spawnT: {fileID: 1865665222}
   floorT: {fileID: 1337819439}
-  pipeT: {fileID: 0}
+  pipeT: {fileID: 2065780092}
   TimeLevels:
   - 5
   - 10
