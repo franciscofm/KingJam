@@ -22,7 +22,7 @@ namespace Game {
 			Vector3 dir = (target.position - transform.position);
 			dir.y = 0f;
 			dir.Normalize();
-			body.velocity = dir * speed;
+			body.AddForce(dir * speed);
 		}
 	}
 }
