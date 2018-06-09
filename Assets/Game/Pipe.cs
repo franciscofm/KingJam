@@ -58,12 +58,15 @@ public class Pipe : MonoBehaviour {
 				yield return new WaitForSeconds (randomWait);
 				float r = Random.Range (0f, 1f);
 				if (r < randomChange) {
-					//Recolocar pipe target
+					ReasignPipeRandom ();
 				}
 			}
 			while (!random) {
 
 			}
 		}
+	}
+	void ReasignPipeRandom() {
+
 	}
 }
