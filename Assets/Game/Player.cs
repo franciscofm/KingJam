@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game {
 	[RequireComponent(typeof(Rigidbody))]
-	public class Player : MonoBehaviour {
+	public class Player : MonoBehaviour, ILevelUp {
 
 		public Rigidbody body;
 		public float speed;
@@ -18,5 +18,10 @@ namespace Game {
 			Vector3 dir = new Vector3 (Input.GetAxis ("Horizontal"), 0f, Input.GetAxis ("Vertical"));
 			body.AddForce (speed * dir);
 		}
+
+        public void LevelUp(int to)
+        {
+
+        }
 	}
 }
