@@ -7,7 +7,6 @@ namespace Game {
 	public class Player : IForce, ILevelUp {
 
         Vector3 force = Vector3.zero;
-        public Rigidbody body;
 		public float speed;
 		// Use this for initialization
 		void Start () {

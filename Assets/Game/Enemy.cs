@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game {
 	public class Enemy : IForce, ILevelUp {
-		public Rigidbody body;
+		//public Rigidbody body;
 		public float speed;
 		public bool delayed;
 		public bool sprayed;

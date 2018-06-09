@@ -181,6 +181,10 @@ MonoBehaviour:
   - 15
   gameTime: 0
   finished: 0
+  playerS: {fileID: 0}
+  enemiesS: []
+  pipeS: {fileID: 0}
+  floorS: {fileID: 0}
 --- !u!4 &166146684
 Transform:
   m_ObjectHideFlags: 0
@@ -194,6 +198,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &176739002
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4604880523325016, guid: 529b00dcdc98be04ebdb75fbba17ee93, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.9746423
+      objectReference: {fileID: 0}
+    - target: {fileID: 4604880523325016, guid: 529b00dcdc98be04ebdb75fbba17ee93, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 4604880523325016, guid: 529b00dcdc98be04ebdb75fbba17ee93, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 1.2493165
+      objectReference: {fileID: 0}
+    - target: {fileID: 4604880523325016, guid: 529b00dcdc98be04ebdb75fbba17ee93, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4604880523325016, guid: 529b00dcdc98be04ebdb75fbba17ee93, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4604880523325016, guid: 529b00dcdc98be04ebdb75fbba17ee93, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4604880523325016, guid: 529b00dcdc98be04ebdb75fbba17ee93, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4604880523325016, guid: 529b00dcdc98be04ebdb75fbba17ee93, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 529b00dcdc98be04ebdb75fbba17ee93, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &576088884
 GameObject:
   m_ObjectHideFlags: 0
@@ -675,6 +721,7 @@ GameObject:
   - component: {fileID: 2065780091}
   - component: {fileID: 2065780089}
   - component: {fileID: 2065780090}
+  - component: {fileID: 2065780093}
   m_Layer: 0
   m_Name: Pipe
   m_TagString: Untagged
@@ -733,6 +780,11 @@ MonoBehaviour:
   playerT: {fileID: 576088890}
   enemyP: {fileID: 1851985537765506, guid: d38caa2e3c977e5468b2f12cd2ff40b9, type: 2}
   bombP: {fileID: 0}
+  spawnStart: 0
+  spawnTime: 0
+  animator: {fileID: 0}
+  Level1Animator: {fileID: 0}
+  Level2Animator: {fileID: 0}
   radius: 2
   speed: 0.5
   yPos: 0
@@ -763,6 +815,23 @@ Transform:
   m_Father: {fileID: 88459853}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2065780093
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2065780088}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &2147366257
 GameObject:
   m_ObjectHideFlags: 0
