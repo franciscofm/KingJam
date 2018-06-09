@@ -175,7 +175,10 @@ MonoBehaviour:
   spawnT: {fileID: 1865665222}
   floorT: {fileID: 1337819439}
   pipeT: {fileID: 0}
-  TimeLevels: []
+  TimeLevels:
+  - 5
+  - 10
+  - 15
   gameTime: 0
   finished: 0
 --- !u!4 &166146684
