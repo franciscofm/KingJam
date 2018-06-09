@@ -7,6 +7,7 @@ public class Pipe : MonoBehaviour {
 	public Transform floorT;
 	public Transform spawnT;
 	public Transform targetT;
+	public Transform playerT;
 
 	public GameObject enemyP;
 	public GameObject bombP;
@@ -52,6 +53,8 @@ public class Pipe : MonoBehaviour {
 	public float retarget = 1f;
 	[Range(0f,1f)] public float randomWait = 0.1f;
 	public float randomChange = 0.05f;
+	public int clearIterations = 0;
+	public int maxClearIterations = 50;
 	IEnumerator MoveRoutine() {
 		while (true) {
 			while (random) {
@@ -59,14 +62,34 @@ public class Pipe : MonoBehaviour {
 				float r = Random.Range (0f, 1f);
 				if (r < randomChange) {
 					ReasignPipeRandom ();
+					clearIterations = 0;
+				} else {
+					++clearIterations;
+					if (clearIterations > maxClearIterations) {
+						ReasignPipePlayer ();
+						clearIterations = 0;
+					}
 				}
 			}
 			while (!random) {
-
+				++clearIterations;
+				if (clearIterations > maxClearIterations * 0.5f) {
+					random = true;
+					clearIterations = 0;
+				}
 			}
 		}
 	}
 	void ReasignPipeRandom() {
-
+		Vector3 newPos = floorT.position + Utils.RandomV3 (-radius, radius);
+		newPos.y = yPos;
+		targetT.position = newPos;
+		random = false;
+	}
+	void ReasignPipePlayer() {
+		Vector3 newPos = playerT.position;
+		newPos.y = yPos;
+		targetT.position = newPos;
+		random = false;
 	}
 }
