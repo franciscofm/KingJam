@@ -4,15 +4,47 @@ using UnityEngine;
 
 public class Pipe : MonoBehaviour {
 
-	public float radius;
+	public Transform floorT;
+	public Transform spawnT;
+	public Transform targetT;
 
-	// Use this for initialization
+	public GameObject enemyP;
+	public GameObject bombP;
+
+	bool playing;
+	float spawnStart;
+	float spawnTime;
+	IEnumerator routineSpawn;
 	void Start () {
-		
+		spawnStart = 5f;
+		spawnTime = 4f;
+		yPos = transform.position.y;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	public void StartGame() {
+		playing = true;
+		StartCoroutine (StartGameRoutine ());
+	}
+	IEnumerator StartGameRoutine() {
+		yield return new WaitForSeconds (spawnStart);
+		StartCoroutine (SpawnRoutine ());
+	}
+
+	IEnumerator SpawnRoutine() {
+		while (playing) {
+			SpawnEnemy ();
+			yield return new WaitForSeconds (spawnTime);
+		}
+	}
+	void SpawnEnemy() {
+		GameObject t = Instantiate (enemyP);
+		t.transform.position = spawnT.position;
+	}
+
+	public float radius;
+	public float speed;
+	public float yPos;
+	IEnumerator routineMove;
+	void Update() {
+		transform.position = Vector3.Lerp (transform.position, targetT.position, Time.deltaTime * speed);
 	}
 }
