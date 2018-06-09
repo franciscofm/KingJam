@@ -3,16 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game {
-	public class Enemy : MonoBehaviour {
+	public class Enemy : IForce, ILevelUp {
 		public Rigidbody body;
 		public float speed;
 		public bool delayed;
 		public bool sprayed;
 		public float distance;
 		public float retargetTime = 3f;
+        public RuntimeAnimatorController level1;
+        public RuntimeAnimatorController level2;
+        public Animator animator;
+        Vector3 force = Vector3.zero;
 
 		Transform target;
 		Vector3 delayedPos;
+
+        override public Vector3 getForce()
+        {
+            return force;
+        }
 
 		void Awake() {
 			if (body != null) body = GetComponent<Rigidbody> ();
@@ -44,7 +53,23 @@ namespace Game {
 			Vector3 dir = (target - transform.position);
 			dir.y = 0f;
 			dir.Normalize ();
-			body.AddForce (dir * speed);
+			body.AddForce (force = (dir * speed));
 		}
+
+        public void LevelUp(int to)
+        {
+            switch (to)
+            {
+                case 0:
+                    break;
+                case 1:
+                    animator.runtimeAnimatorController = level1;
+                    break;
+                case 2:
+                default:
+                    animator.runtimeAnimatorController = level2;
+                    break;
+            }
+        }
 	}
 }

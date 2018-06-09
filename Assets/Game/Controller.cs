@@ -18,10 +18,16 @@ namespace Game {
 		public bool finished;
 
 		Player playerS;
-		List<Enemy> enemiesS;
+		List<Enemy> enemiesS = new List<Enemy>();
 		Pipe pipeS;
 		Floor floorS;
 		int level;
+
+        public void NewEnemy(Enemy enemy)
+        {
+            enemy.LevelUp(level);
+            enemiesS.Add(enemy);
+        }
 
 		void Awake() {
 			if (instance != null) Destroy (instance.gameObject);
@@ -53,11 +59,11 @@ namespace Game {
 			}
 		}
 		void LevelUp() {
-			//playerS.LevelUp ();
-			//for (int i = 0; i < enemiesS.Count; ++i)
-			//	enemiesS [i].LevelUp ();
-			//pipeS.LevelUp();
-			floorS.LevelUp(level);
+            //playerS.LevelUp ();
+            for (int i = 0; i < enemiesS.Count; ++i)
+                enemiesS[i].LevelUp(level);
+            //pipeS.LevelUp();
+            floorS.LevelUp(level);
 		}
 	}
 }

@@ -1,11 +1,10 @@
 fileFormatVersion: 2
-guid: 4702713165517d240a45b077bd4a2580
+guid: b6e16c8e3d8bc6146b5ffd9a3ca3c600
 TextureImporter:
   fileIDToRecycleName:
-    21300000: _0000_burn
-    21300002: _0001_hurt
-    21300004: _0002_pj01
-    21300006: _0003_pj02
+    21300000: _0000_fall
+    21300002: _0001_walk1
+    21300004: _0002_walk2
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -45,7 +44,7 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 0
-  alignment: 7
+  alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
@@ -71,96 +70,65 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: _0000_burn
-      rect:
-        serializedVersion: 2
-        x: 1291
-        y: 1305
-        width: 1287
-        height: 741
-      alignment: 9
-      pivot: {x: 0.52020204, y: 0.49190283}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ae2d73ad05fa57b46a4e517e50dc7c86
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: _0001_hurt
-      rect:
-        serializedVersion: 2
-        x: 2580
-        y: 1305
-        width: 1023
-        height: 741
-      alignment: 9
-      pivot: {x: 0.52834797, y: 0.49190283}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c78a4a46498080b47bfd1b218604e34c
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: _0002_pj01
+      name: _0000_fall
       rect:
         serializedVersion: 2
         x: 2
-        y: 1293
-        width: 1287
-        height: 753
-      alignment: 9
-      pivot: {x: 0.52020204, y: 0.5}
+        y: 895
+        width: 933
+        height: 1151
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 78c357e6555b5254b8b5e2c92d46c9b8
+      spriteID: 12a2cbc39cd431b4d889d739c637bd7c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _0003_pj02
+      name: _0001_walk1
       rect:
         serializedVersion: 2
-        x: 2
-        y: 550
-        width: 1339
-        height: 741
-      alignment: 9
-      pivot: {x: 0.5, y: 0.49190283}
+        x: 1035
+        y: 1082
+        width: 918
+        height: 964
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1bb1e84080eddbe45890ca81e18c8341
+      spriteID: af0049223338b80478dc8e64dc30f502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _0002_walk2
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 13
+        width: 1031
+        height: 880
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d02842ac70b205941ba4828952192d7e
       vertices: []
       indices: 
       edges: []
@@ -168,7 +136,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: cb8c63b5b9247fb45a9013e4d0503e2c
     vertices: []
     indices: 
     edges: []
