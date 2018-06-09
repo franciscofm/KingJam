@@ -19,8 +19,7 @@ namespace Game {
 			body.AddForce (speed * dir);
 		}
 
-        public void LevelUp(int to)
-        {
+        public void LevelUp(int to) {
 
         }
 	}

@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pipe : MonoBehaviour {
-
+public class Pipe : MonoBehaviour, ILevelUp {
+	[Header("References")]
 	public Transform floorT;
 	public Transform spawnT;
 	public Transform targetT;
@@ -12,14 +12,19 @@ public class Pipe : MonoBehaviour {
 	public GameObject enemyP;
 	public GameObject bombP;
 
+
 	bool playing;
-	float spawnStart;
-	float spawnTime;
+	[Header("Spawn")]
+	public float spawnStart = 5f;
+	public float spawnTime = 4f;
+	public Animator animator;
+	[Header("LevelUp")]
+	public RuntimeAnimatorController Level1Animator;
+	public RuntimeAnimatorController Level2Animator;
 	IEnumerator routineSpawn;
 	void Start () {
-		spawnStart = 5f;
-		spawnTime = 4f;
 		yPos = transform.position.y;
+		if (animator == null) animator = GetComponent<Animator> ();
 	}
 	public void StartGame() {
 		playing = true;
@@ -42,6 +47,7 @@ public class Pipe : MonoBehaviour {
 		t.transform.position = spawnT.position;
 	}
 
+	[Header("Movement")]
 	public float radius;
 	public float speed;
 	public float yPos;
@@ -91,5 +97,17 @@ public class Pipe : MonoBehaviour {
 		newPos.y = yPos;
 		targetT.position = newPos;
 		random = false;
+	}
+
+	public void LevelUp(int to) {
+		switch (to)
+		{
+		case 1:
+			animator.runtimeAnimatorController = Level1Animator;
+			break;
+		case 2:
+			animator.runtimeAnimatorController = Level2Animator;
+			break;
+		}
 	}
 }
