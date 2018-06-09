@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClampBaseRotation : MonoBehaviour, ILevelUp {
+public class Floor : MonoBehaviour, ILevelUp {
 
     static float maxRotation = 20f;
     static float midRotation = maxRotation + (360f - maxRotation * 2f) / 2f;
 
     public AnimationCurve clampCurve;
     public Rigidbody body;
+
+    public Material level1;
+    public Material level2;
 
     void Update () {
         float rotation = transform.eulerAngles.z;
@@ -31,6 +34,14 @@ public class ClampBaseRotation : MonoBehaviour, ILevelUp {
 
     public void LevelUp(int to)
     {
-
+        switch (to)
+        {
+            case 1:
+                GetComponent<MeshRenderer>().material = level1;
+                break;
+            case 2:
+                GetComponent<MeshRenderer>().material = level2;
+                break;
+        }
     }
 }
