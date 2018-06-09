@@ -18,10 +18,7 @@ namespace Game {
 		Transform target;
 		Vector3 delayedPos;
 
-        override public Vector3 getForce()
-        {
-            return force;
-        }
+        override public Vector3 getForce() { return force; }
 
 		void Awake() {
 			if (body != null) body = GetComponent<Rigidbody> ();
@@ -29,8 +26,8 @@ namespace Game {
 		// Use this for initialization
 		void Start () {
 			target = Controller.instance.playT;
+			delayedPos = target.position;
 			if(delayed) {
-				delayedPos = target.position;
 				StartCoroutine(RetargetRoutine());
 				if (sprayed) {
 					delayedPos.x += Random.Range (-distance, distance);
@@ -56,20 +53,61 @@ namespace Game {
 			body.AddForce (force = (dir * speed));
 		}
 
-        public void LevelUp(int to)
-        {
-            switch (to)
-            {
-                case 0:
-                    break;
-                case 1:
-                    animator.runtimeAnimatorController = level1;
-                    break;
-                case 2:
-                default:
-                    animator.runtimeAnimatorController = level2;
-                    break;
+		[Header("LevelUp stats")]
+		public float speed1 = 7f;
+		public float speedError1 = 1f;
+		public float speed2 = 8f;
+		public float speedError2= 1.5f;
+
+		public float chanceToDelayed1 = 0.1f;
+		public float chanceToDelayed2 = 0.1f;
+		public float chanceToSprayed1 = 0.15f;
+		public float chanceToSprayed2 = 0.1f;
+
+		public void LevelUp(int to) {
+			
+			bool delayedBefore = delayed;
+			bool sprayedBefore = sprayed;
+			float r;
+
+			switch (to) {
+            case 0:
+                break;
+			case 1:
+				animator.runtimeAnimatorController = level1;
+				speed = speed1 + speedError1 * Random.Range (0f, 1f);
+				if (!delayedBefore) {
+					r = Random.Range (0f, 1f);
+					delayed = r < chanceToDelayed1;
+				}
+				if (!sprayedBefore) {
+					r = Random.Range (0f, 1f);
+					sprayed = r < chanceToSprayed1;
+				}
+                break;
+            case 2:
+            default:
+				animator.runtimeAnimatorController = level2;
+				speed = speed1 + speedError2 * Random.Range (0f, 1f);
+				if (!delayedBefore) {
+					r = Random.Range (0f, 1f);
+					delayed = r < chanceToDelayed2;
+				}
+				if (!sprayedBefore) {
+					r = Random.Range (0f, 1f);
+					sprayed = r < chanceToSprayed2;
+				}
+                break;
             }
+
+			if (!delayedBefore && delayed) {
+				delayedPos = target.position;
+				StartCoroutine(RetargetRoutine());
+				if (sprayed) {
+					delayedPos.x += Random.Range (-distance, distance);
+					delayedPos.z += Random.Range (-distance, distance);
+				}
+			}
         }
 	}
 }
