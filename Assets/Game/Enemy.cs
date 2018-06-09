@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game {
-	public class Enemy : IForce {
+	public class Enemy : IForce, ILevelUp {
 		public Rigidbody body;
 		public float speed;
 		public bool delayed;
 		public bool sprayed;
 		public float distance;
 		public float retargetTime = 3f;
+        public RuntimeAnimatorController level1;
+        public RuntimeAnimatorController level2;
+        public Animator animator;
         Vector3 force = Vector3.zero;
 
 		Transform target;
@@ -52,5 +55,18 @@ namespace Game {
 			dir.Normalize ();
 			body.AddForce (force = (dir * speed));
 		}
+
+        public void LevelUp(int to)
+        {
+            switch (to)
+            {
+                case 1:
+                    animator.runtimeAnimatorController = level1;
+                    break;
+                case 2:
+                    animator.runtimeAnimatorController = level2;
+                    break;
+            }
+        }
 	}
 }
