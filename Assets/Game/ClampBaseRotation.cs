@@ -17,15 +17,13 @@ public class ClampBaseRotation : MonoBehaviour {
         {
             if (rotation < midRotation)
             {
-                float diff = rotation / maxRotation;
                 r.z = maxRotation;
-                body.angularVelocity = Vector3.zero * (1f - clampCurve.Evaluate(diff));
+                body.angularVelocity = Vector3.zero;
             }
-            else if (rotation < 360 - maxRotation)
+            else if (rotation < (360 - maxRotation))
             {
-                float diff = rotation / midRotation;
                 r.z = 360f - maxRotation;
-                body.angularVelocity = Vector3.zero * (1f - clampCurve.Evaluate(diff));
+                body.angularVelocity = Vector3.zero;
             }
         }
         transform.eulerAngles = r;
