@@ -6,14 +6,16 @@ using UnityEngine.UI;
 namespace Menu {
 	public class Controller : MonoBehaviour {
 
-		// Use this for initialization
-		void Start () {
-			
+		public void ShowMenu() {
+
 		}
-		
-		// Update is called once per frame
-		void Update () {
-			
+
+		public void StartGame() {
+
+		}
+
+		public void ShowSettings() {
+
 		}
 	}
 }
