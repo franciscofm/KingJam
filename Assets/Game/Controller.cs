@@ -6,12 +6,13 @@ namespace Game {
 	public class Controller : MonoBehaviour {
 
 		public GameObject enemyP;
-		public Transform playT;
+		public Transform playerT;
 		public Transform spawnT;
 		public Transform floorT;
 		public Transform pipeT;
 		public static Controller instance;
 
+		Vector3 pipeStartPos, playerStartPos;
 
 		public float[] TimeLevels = new float[]{5f, 10f, 20f};
 		public float gameTime;
@@ -36,9 +37,12 @@ namespace Game {
         }
 
 		void Start() {
-			playerS = playT.GetComponent<Player> ();
+			playerS = playerT.GetComponent<Player> ();
 			pipeS = pipeT.GetComponent<Pipe> ();
 			floorS = floorT.GetComponent<Floor> ();
+
+			pipeStartPos = pipeT.position;
+			playerStartPos = playerT.position;
 
 			gameTime = 0f;
 			level = 0;
@@ -64,6 +68,13 @@ namespace Game {
                 enemiesS[i].LevelUp(level);
             //pipeS.LevelUp();
             floorS.LevelUp(level);
+		}
+
+		public void PlayerLost() {
+
+		}
+		void Restart() {
+
 		}
 	}
 }

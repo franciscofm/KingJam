@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game {
-	public class Bomb : MonoBehaviour {
+	public class Bomb : MonoBehaviour, ILevelUp {
 
 		public Animator animator;
+		public string DelayAnimation = "Delay";
+		public string IgniteAnimation = "Ignite";
+		public string ExplodeAnimation = "Explode";
 		public enum Type { Explosion, Implosion }
 		public Type type = Type.Explosion;
 		public float delay = 3f;
@@ -40,14 +43,18 @@ namespace Game {
 					enemies [i].Push (force, dir.normalized);
 				}
 			}
-			float dist2 = Vector3.Distance (Controller.instance.playT.position, transform.position);
+			float dist2 = Vector3.Distance (Controller.instance.playerT.position, transform.position);
 			if (dist2 < range) {
 				Vector3 dir2 = 
 					(type == Type.Explosion) ? 
-					Controller.instance.playT.position - transform.position : 
-					transform.position - Controller.instance.playT.position;
+					Controller.instance.playerT.position - transform.position : 
+					transform.position - Controller.instance.playerT.position;
 				Controller.instance.playerS.Push (force, dir2.normalized);
 			}
+		}
+
+		public void LevelUp(int to) {
+
 		}
 
 		void OnDrawGizmosSelected() {

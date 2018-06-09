@@ -25,7 +25,7 @@ namespace Game {
 		}
 		// Use this for initialization
 		void Start () {
-			target = Controller.instance.playT;
+			target = Controller.instance.playerT;
 			delayedPos = target.position;
 			if(delayed) {
 				StartCoroutine(RetargetRoutine());
