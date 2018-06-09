@@ -23,6 +23,7 @@ public class Pipe : MonoBehaviour {
 	public void StartGame() {
 		playing = true;
 		StartCoroutine (StartGameRoutine ());
+		StartCoroutine (MoveRoutine ());
 	}
 	IEnumerator StartGameRoutine() {
 		yield return new WaitForSeconds (spawnStart);
@@ -46,5 +47,23 @@ public class Pipe : MonoBehaviour {
 	IEnumerator routineMove;
 	void Update() {
 		transform.position = Vector3.Lerp (transform.position, targetT.position, Time.deltaTime * speed);
+	}
+	public bool random = true;
+	public float retarget = 1f;
+	[Range(0f,1f)] public float randomWait = 0.1f;
+	public float randomChange = 0.05f;
+	IEnumerator MoveRoutine() {
+		while (true) {
+			while (random) {
+				yield return new WaitForSeconds (randomWait);
+				float r = Random.Range (0f, 1f);
+				if (r < randomChange) {
+					//Recolocar pipe target
+				}
+			}
+			while (!random) {
+
+			}
+		}
 	}
 }
