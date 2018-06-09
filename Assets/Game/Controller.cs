@@ -8,7 +8,8 @@ namespace Game {
 		public GameObject enemyP;
 		public Transform playT;
 		public Transform spawnT;
-		public Pipe pipeS;
+		public Transform floorT;
+        public Pipe pipeS;
 		public static Controller instance;
 
 		Player player;
@@ -17,7 +18,8 @@ namespace Game {
 		void Awake() {
 			if (instance != null) Destroy (instance.gameObject);
 			instance = this;
-		}
+            FixSpriteRotation.floor = floorT;
+        }
 		void Start() {
 			pipeS.StartGame ();
 		}
