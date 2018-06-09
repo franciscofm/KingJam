@@ -60,10 +60,13 @@ namespace Game {
         {
             switch (to)
             {
+                case 0:
+                    break;
                 case 1:
                     animator.runtimeAnimatorController = level1;
                     break;
                 case 2:
+                default:
                     animator.runtimeAnimatorController = level2;
                     break;
             }

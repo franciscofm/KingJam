@@ -37,7 +37,6 @@ GameObject:
   - component: {fileID: 4249338214148446}
   - component: {fileID: 33524459742041046}
   - component: {fileID: 135647956793134220}
-  - component: {fileID: 23347541630855482}
   - component: {fileID: 54342640447195082}
   - component: {fileID: 114858853424036674}
   m_Layer: 0
@@ -106,41 +105,6 @@ Transform:
   m_Father: {fileID: 4249338214148446}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23347541630855482
-MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1851985537765506}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
 --- !u!33 &33524459742041046
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -221,6 +185,9 @@ MonoBehaviour:
   sprayed: 0
   distance: 0
   retargetTime: 3
+  level1: {fileID: 9100000, guid: ce9c22b7be50d094c8f8eedcaf614f2d, type: 2}
+  level2: {fileID: 9100000, guid: ce9c22b7be50d094c8f8eedcaf614f2d, type: 2}
+  animator: {fileID: 95504718089369848}
 --- !u!135 &135647956793134220
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -273,7 +240,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 9.18, y: 9.64}
+  m_Size: {x: 2.52, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0

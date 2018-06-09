@@ -40,6 +40,7 @@ public class Pipe : MonoBehaviour {
 	void SpawnEnemy() {
 		GameObject t = Instantiate (enemyP);
 		t.transform.position = spawnT.position;
+        Game.Controller.instance.NewEnemy(t.GetComponent<Game.Enemy>());
 	}
 
 	public float radius;
