@@ -154,7 +154,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 54342640447195082}
-  speed: 2
+  speed: 4
+  delayed: 0
+  sprayed: 0
+  distance: 0
+  retargetTime: 3
 --- !u!135 &135647956793134220
 SphereCollider:
   m_ObjectHideFlags: 1
