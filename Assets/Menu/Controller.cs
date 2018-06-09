@@ -6,18 +6,32 @@ using UnityEngine.UI;
 namespace Menu {
 	public class Controller : MonoBehaviour {
 
-		public void ShowMenu() {
-			float rot = transform.localRotation.eulerAngles.z;
-			rot = Mathf.Clamp (rot, -20, 20);
-			//transform.rotation.eulerAngles = new Vector3(0f,0f,rot);
+		public float startGameWait = 3f;
+		public Animator animator;
+
+		bool blocked;
+
+		void Start() {
+			blocked = false;
+		}
+		public void StartGame() {
+			blocked = true;
+			animator.Play ("StartGame");
+			StartCoroutine (StartGameRoutine ());
+		}
+		IEnumerator StartGameRoutine() {
+			yield return new WaitForSeconds (startGameWait);
+			//Game.Controller.instance.StartGame ();
 		}
 
-		public void StartGame() {
-
+		public void ShowMenu() {
+			blocked = false;
+			animator.Play ("ShowMenu");
+			//Enseñar panel
 		}
 
 		public void ShowSettings() {
-
+			
 		}
 	}
 }

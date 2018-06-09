@@ -6,8 +6,13 @@ namespace Game {
 	public class Enemy : MonoBehaviour {
 		public Rigidbody body;
 		public float speed;
+		public bool delayed;
+		public bool sprayed;
+		public float distance;
+		public float retargetTime = 3f;
 
 		Transform target;
+		Vector3 delayedPos;
 
 		void Awake() {
 			if (body != null) body = GetComponent<Rigidbody> ();
@@ -15,14 +20,31 @@ namespace Game {
 		// Use this for initialization
 		void Start () {
 			target = Controller.instance.playT;
+			if(delayed) {
+				delayedPos = target.position;
+				StartCoroutine(RetargetRoutine());
+				if (sprayed) {
+					delayedPos.x += Random.Range (-distance, distance);
+					delayedPos.z += Random.Range (-distance, distance);
+				}
+			}
+		}
+		IEnumerator RetargetRoutine() {
+			yield return new WaitForSeconds (retargetTime);
+			delayedPos = target.position;
+			if (sprayed) {
+				delayedPos.x += Random.Range (-distance, distance);
+				delayedPos.z += Random.Range (-distance, distance);
+			}
 		}
 		
 		// Update is called once per frame
 		void Update () {
-			Vector3 dir = (target.position - transform.position);
+			Vector3 target = (delayed) ? this.target.position : delayedPos;
+			Vector3 dir = (target - transform.position);
 			dir.y = 0f;
-			dir.Normalize();
-			body.AddForce(dir * speed);
+			dir.Normalize ();
+			body.AddForce (dir * speed);
 		}
 	}
 }
