@@ -17,11 +17,11 @@ namespace Game {
 		public float gameTime;
 		public bool finished;
 
-		public Player playerS;
-		public List<Enemy> enemiesS = new List<Enemy>();
-		public Pipe pipeS;
-		public Floor floorS;
-		int level;
+		[HideInInspector] public Player playerS;
+		[HideInInspector] public List<Enemy> enemiesS = new List<Enemy>();
+		[HideInInspector] public Pipe pipeS;
+		[HideInInspector] public Floor floorS;
+		[HideInInspector] int level;
 
         public void NewEnemy(Enemy enemy)
         {

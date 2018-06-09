@@ -111,4 +111,9 @@ public class Pipe : MonoBehaviour, ILevelUp {
 			break;
 		}
 	}
+
+	void OnDrawGizmos() {
+		Gizmos.color = Color.cyan;
+		Gizmos.DrawWireSphere (transform.position - Vector3.up*transform.localScale.y, radius);
+	}
 }
