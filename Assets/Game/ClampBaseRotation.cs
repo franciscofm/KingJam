@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClampBaseRotation : MonoBehaviour {
+public class ClampBaseRotation : MonoBehaviour, ILevelUp {
 
     static float maxRotation = 20f;
     static float midRotation = maxRotation + (360f - maxRotation * 2f) / 2f;
@@ -27,5 +27,10 @@ public class ClampBaseRotation : MonoBehaviour {
             }
         }
         transform.eulerAngles = r;
+    }
+
+    public void LevelUp(int to)
+    {
+
     }
 }
