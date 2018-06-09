@@ -20,8 +20,8 @@ namespace Game {
 		Player playerS;
 		List<Enemy> enemiesS;
 		Pipe pipeS;
-		//Floor floorS;
-		int level;
+        Floor floorS;
+        int level;
 
 		void Awake() {
 			if (instance != null) Destroy (instance.gameObject);
@@ -32,9 +32,9 @@ namespace Game {
 		void Start() {
 			playerS = playT.GetComponent<Player> ();
 			pipeS = pipeT.GetComponent<Pipe> ();
-			//floorS = floorT.GetComponent<Floor> ();
+            floorS = floorT.GetComponent<Floor>();
 
-			gameTime = 0f;
+            gameTime = 0f;
 			level = 0;
 			finished = false;
 			pipeS.StartGame ();
@@ -42,22 +42,25 @@ namespace Game {
 		void Update() {
 			gameTime += Time.deltaTime;
 			if (!finished) {
-				if (gameTime > TimeLevels [level])
-					LevelUp ();
+                if (gameTime > TimeLevels[level])
+                {
+                    LevelUp();
 
-				++level;
-				if(level >= TimeLevels.Length) {
-					finished = true;
-					return;
-				}
+                    ++level;
+                    if (level >= TimeLevels.Length)
+                    {
+                        finished = true;
+                        return;
+                    }
+                }
 			}
 		}
 		void LevelUp() {
-			//playerS.LevelUp ();
-			//for (int i = 0; i < enemiesS.Count; ++i)
-			//	enemiesS [i].LevelUp ();
-			//pipeS.LevelUp();
-			//floorS.LevelUp();
-		}
+            //playerS.LevelUp ();
+            //for (int i = 0; i < enemiesS.Count; ++i)
+            //	enemiesS [i].LevelUp ();
+            //pipeS.LevelUp();
+            floorS.LevelUp(level + 1);
+        }
 	}
 }
