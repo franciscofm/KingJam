@@ -40,7 +40,7 @@ namespace Game {
 		
 		// Update is called once per frame
 		void Update () {
-			Vector3 target = (delayed) ? this.target.position : delayedPos;
+			Vector3 target = (!delayed) ? this.target.position : delayedPos;
 			Vector3 dir = (target - transform.position);
 			dir.y = 0f;
 			dir.Normalize ();
