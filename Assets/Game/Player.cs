@@ -4,9 +4,10 @@ using UnityEngine;
 
 namespace Game {
 	[RequireComponent(typeof(Rigidbody))]
-	public class Player : MonoBehaviour, ILevelUp {
+	public class Player : IForce, ILevelUp {
 
-		public Rigidbody body;
+        Vector3 force = Vector3.zero;
+        public Rigidbody body;
 		public float speed;
 		// Use this for initialization
 		void Start () {
@@ -16,12 +17,17 @@ namespace Game {
 		// Update is called once per frame
 		void Update () {
 			Vector3 dir = new Vector3 (Input.GetAxis ("Horizontal"), 0f, Input.GetAxis ("Vertical"));
-			body.AddForce (speed * dir);
+			body.AddForce(force = (speed * dir));
 		}
 
         public void LevelUp(int to)
         {
 
+        }
+
+        override public Vector3 getForce()
+        {
+            return force;
         }
 	}
 }
