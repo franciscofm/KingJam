@@ -56,8 +56,9 @@ MonoBehaviour:
   direction: 0
   speed: 0.2
   level0Sprite: {fileID: 21300000, guid: 9e5e6cf818e3e34479005bbdf69fd769, type: 3}
-  level1Sprite: {fileID: 21300000, guid: f731251fe0587cf4b91ee5c93b489496, type: 3}
-  level2Sprite: {fileID: 21300000, guid: f3b9077c1753c9047a7f7d28706502fe, type: 3}
+  level1Sprite: {fileID: 21300000, guid: 35336487910fd2243b494d03b1fc7716, type: 3}
+  level2Sprite: {fileID: 21300000, guid: f731251fe0587cf4b91ee5c93b489496, type: 3}
+  level3Sprite: {fileID: 21300000, guid: f3b9077c1753c9047a7f7d28706502fe, type: 3}
   sr: {fileID: 0}
   distance: 0
   _speed: {x: 0, y: 0, z: 0}

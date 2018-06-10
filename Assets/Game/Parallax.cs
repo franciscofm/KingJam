@@ -14,6 +14,7 @@ public class Parallax : MonoBehaviour, ILevelUp {
 	public Sprite level0Sprite;
 	public Sprite level1Sprite;
 	public Sprite level2Sprite;
+	public Sprite level3Sprite;
 
 	[Header("Debug")]
 	public SpriteRenderer sr;
@@ -36,6 +37,10 @@ public class Parallax : MonoBehaviour, ILevelUp {
 		else if (to == 2) {
 			sr.sprite = level2Sprite;
 			items [1].GetComponent<SpriteRenderer> ().sprite = level2Sprite;
+		}
+		else if (to == 3) {
+			sr.sprite = level2Sprite;
+			items [1].GetComponent<SpriteRenderer> ().sprite = level3Sprite;
 		}
 	}
 

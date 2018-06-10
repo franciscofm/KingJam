@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Platform 1
+  m_Name: FloorLevel0
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -39,7 +39,7 @@ Material:
         m_Scale: {x: 0.64, y: 0.88}
         m_Offset: {x: 2.18, y: 0.02}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 2a1f49adb8bce0f49a6f639cb0b9d4ce, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8251e49965773914aab68310e5fd1be3, type: 3}
         m_Scale: {x: 0.64, y: 0.88}
         m_Offset: {x: 2.18, y: 0.02}
     - _MetallicGlossMap:
