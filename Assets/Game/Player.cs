@@ -6,6 +6,10 @@ namespace Game {
 	[RequireComponent(typeof(Rigidbody))]
 	public class Player : IForce, ILevelUp {
 
+		public Animator animator;
+		public RuntimeAnimatorController RuntimeAnim1;
+		public RuntimeAnimatorController RuntimeAnim2;
+
         Vector3 force = Vector3.zero;
 		public float speed;
 		// Use this for initialization
@@ -20,12 +24,25 @@ namespace Game {
 		}
 
         public void LevelUp(int to) {
-
+			switch (to) {
+			case 0:
+				break;
+			case 1:
+				animator.runtimeAnimatorController = RuntimeAnim1;
+				break;
+			case 2:
+			default:
+				animator.runtimeAnimatorController = RuntimeAnim2;
+				break;
+			}
         }
 
-        override public Vector3 getForce()
-        {
+        override public Vector3 getForce() {
             return force;
         }
+
+		void OnDestroy() {
+			Controller.instance.PlayerLost ();
+		}
 	}
 }

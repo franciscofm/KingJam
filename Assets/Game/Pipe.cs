@@ -54,7 +54,15 @@ public class Pipe : MonoBehaviour, ILevelUp {
 	public float yPos;
 	IEnumerator routineMove;
 	void Update() {
-		transform.position = Vector3.Lerp (transform.position, targetT.position, Time.deltaTime * speed);
+		if (playing) {
+			if (playerT == null) {
+				playing = false;
+				StopAllCoroutines ();
+				Debug.Log ("Pipe STOP: Lost player target");
+				return;
+			}
+			transform.position = Vector3.Lerp (transform.position, targetT.position, Time.deltaTime * speed);
+		}
 	}
 	public bool random = true;
 	public float retarget = 1f;
@@ -110,5 +118,10 @@ public class Pipe : MonoBehaviour, ILevelUp {
 			animator.runtimeAnimatorController = Level2Animator;
 			break;
 		}
+	}
+
+	void OnDrawGizmos() {
+		Gizmos.color = Color.cyan;
+		Gizmos.DrawWireSphere (transform.position - Vector3.up*transform.localScale.y, radius);
 	}
 }

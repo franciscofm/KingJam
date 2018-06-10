@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 65657459086211866}
   - component: {fileID: 23635763896346952}
   - component: {fileID: 114976870880268404}
+  - component: {fileID: 95771873920931506}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: Untagged
@@ -96,6 +97,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &95771873920931506
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1909086954089550}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114976870880268404
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -107,8 +125,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08fda0a53a31d3f4d85953f221f990d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
-  delay: 5
-  duration: 5
-  range: 10
-  force: 30
+  animator: {fileID: 95771873920931506}
+  type: 0
+  delay: 1
+  duration: 3
+  range: 2
+  force: 4
