@@ -19,13 +19,12 @@ public class Pipe : MonoBehaviour, ILevelUp {
 	public float spawnStart = 5f;
 	public float spawnTime = 4f;
 	public Animator animator;
-	[Header("LevelUp")]
-	public RuntimeAnimatorController Level1Animator;
-	public RuntimeAnimatorController Level2Animator;
+	public AudioSource audioSource;
 	IEnumerator routineSpawn;
 	void Start () {
 		yPos = transform.position.y;
 		if (animator == null) animator = GetComponent<Animator> ();
+		if (audioSource == null) audioSource = GetComponent<AudioSource> ();
 	}
 	public void StartGame() {
 		playing = true;
@@ -38,6 +37,7 @@ public class Pipe : MonoBehaviour, ILevelUp {
         playerT = Instantiate(playerP).transform;
         playerT.position = spawnT.position;
         Game.Controller.instance.playerT = playerT;
+		audioSource.Play ();
     }
 
 	IEnumerator StartGameRoutine() {
@@ -54,6 +54,7 @@ public class Pipe : MonoBehaviour, ILevelUp {
 	float chanceToBomb = 0f;
 	float chanceExplosion = 1f;
 	void SpawnEnemy() {
+		audioSource.Play ();
 		float r = Random.Range (0f, 1f);
 		if (r > chanceToBomb) {
 			GameObject t = Instantiate (enemyP);
@@ -141,15 +142,6 @@ public class Pipe : MonoBehaviour, ILevelUp {
 			chanceToBomb = chancesToBomb [to];
 			chanceExplosion = chancesToExplosion [to];
 			Debug.Log ("New chances: " + chanceToBomb + ", " + chancesToExplosion);
-		}
-		switch (to)
-		{
-		case 1:
-			animator.runtimeAnimatorController = Level1Animator;
-			break;
-		case 2:
-			animator.runtimeAnimatorController = Level2Animator;
-			break;
 		}
 	}
 
