@@ -68,9 +68,9 @@ public class Pipe : MonoBehaviour, ILevelUp {
 		t.transform.position = spawnT.position;
 		float r = Random.Range (0f, 1f);
 		if (r > chanceExplosion)
-			t.GetComponent<Game.Bomb>().type = Game.Bomb.Type.Implosion;
+			t.GetComponent<Game.Bomb>().SetType(Game.Bomb.Type.Implosion);
 		else
-			t.GetComponent<Game.Bomb>().type = Game.Bomb.Type.Explosion;
+			t.GetComponent<Game.Bomb>().SetType(Game.Bomb.Type.Explosion);
 	}
 
 	[Header("Movement")]
