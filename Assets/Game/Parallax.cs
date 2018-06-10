@@ -25,9 +25,18 @@ public class Parallax : MonoBehaviour, ILevelUp {
 	public Vector3 outside;
 
 	public void LevelUp(int to) {
-		if (to == 0) sr.sprite = level0Sprite;
-		else if (to == 1) sr.sprite = level1Sprite;
-		else if (to == 2) sr.sprite = level2Sprite;
+		if (to == 0) {
+			sr.sprite = level0Sprite;
+			items [1].GetComponent<SpriteRenderer> ().sprite = level0Sprite;
+		}
+		else if (to == 1) {
+			sr.sprite = level1Sprite; 
+			items [1].GetComponent<SpriteRenderer> ().sprite = level1Sprite;
+		}
+		else if (to == 2) {
+			sr.sprite = level2Sprite;
+			items [1].GetComponent<SpriteRenderer> ().sprite = level2Sprite;
+		}
 	}
 
 	// Use this for initialization

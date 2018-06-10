@@ -6,6 +6,7 @@ using UnityEngine.UI;
 namespace Menu {
 	public class Controller : MonoBehaviour {
 
+		public static Controller instance;
 		public Image holdImage;
 		public Sprite playHeld;
 		public Sprite playNormal;
@@ -22,6 +23,10 @@ namespace Menu {
 		public bool inMain = true;
 		public float holdTimer;
 
+		void Awake() {
+			instance = this;
+		}
+
 		public void StartHolding() {
 			holdImage.sprite = playHeld;
 		}
@@ -35,10 +40,10 @@ namespace Menu {
 			starting = false;
 			inMain = true;
 			escPanel.SetActive (false);
-			tuto1.SetActive (true);
-			tuto2.SetActive (true);
-			tuto3.SetActive (true);
-			tuto4.SetActive (true);
+			tuto1.SetActive (false);
+			tuto2.SetActive (false);
+			tuto3.SetActive (false);
+			tuto4.SetActive (false);
 			show.SetActive (true);
 		}
 		void StartGame() {
