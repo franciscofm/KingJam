@@ -7,11 +7,12 @@ public class Floor : MonoBehaviour, ILevelUp {
     static float maxRotation = 20f;
     static float midRotation = maxRotation + (360f - maxRotation * 2f) / 2f;
 
-    public AnimationCurve clampCurve;
     public Rigidbody body;
 
+    public Material level0;
     public Material level1;
     public Material level2;
+    public Material level3;
 
     void Update () {
         float rotation = transform.eulerAngles.z;
@@ -36,11 +37,19 @@ public class Floor : MonoBehaviour, ILevelUp {
     {
         switch (to)
         {
+            case 0:
+                GetComponent<MeshRenderer>().material = level0;
+                transform.eulerAngles =
+                body.angularVelocity = Vector3.zero;
+                break;
             case 1:
                 GetComponent<MeshRenderer>().material = level1;
                 break;
             case 2:
                 GetComponent<MeshRenderer>().material = level2;
+                break;
+            case 3:
+                GetComponent<MeshRenderer>().material = level3;
                 break;
         }
     }

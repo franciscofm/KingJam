@@ -18,6 +18,11 @@ namespace Game {
 
         override public Vector3 getForce() { return force; }
 
+        void OnDestroy()
+        {
+            Controller.instance.enemiesS.Remove(this);
+        }
+
 		void Awake() {
 			if (body != null) body = GetComponent<Rigidbody> ();
 		}

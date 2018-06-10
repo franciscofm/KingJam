@@ -41,8 +41,9 @@ namespace Game
         }
         public void Start() { if (debug) StartGame(); }
 		public void StartGame() {
-			playerS = playerT.GetComponent<Player> ();
 			pipeS = pipeT.GetComponent<Pipe> ();
+            pipeS.StartGame ();
+			playerS = playerT.GetComponent<Player> ();
 			floorS = floorT.GetComponent<Floor> ();
 			parallaxS = parallaxT.GetComponent<Parallax> ();
 
@@ -52,7 +53,6 @@ namespace Game
 			gameTime = 0f;
 			level = 0;
 			finished = false;
-			pipeS.StartGame ();
             gameStarted = true;
 		}
 		void Update() {
@@ -65,7 +65,6 @@ namespace Game
                     LevelUp();
                     if (level >= TimeLevels.Length)
                     {
-                        print("Reached max level");
                         finished = true;
                         return;
                     }
@@ -76,7 +75,6 @@ namespace Game
             playerS.LevelUp(level);
             for (int i = 0; i < enemiesS.Count; ++i)
                 enemiesS[i].LevelUp(level);
-            //pipeS.LevelUp();
             floorS.LevelUp(level);
 			parallaxS.LevelUp (level);
 		}
@@ -84,6 +82,10 @@ namespace Game
 		public void PlayerLost() {
             pipeS.playing = false;
             finished = true;
+            Menu.Controller.instance.Reset(delegate
+            {
+                Restart();
+            });
         }
 		void Restart() {
             while (enemiesS.Count != 0)
@@ -95,9 +97,9 @@ namespace Game
             pipeS.LevelUp(0);
 			floorS.LevelUp(0);
 			parallaxS.LevelUp (0);
-            playerT = Instantiate(playerP).transform;
             pipeS.playing = true;
-            finished = false;
+            level = 0;
+            gameTime = 0f;
         }
 	}
 }
