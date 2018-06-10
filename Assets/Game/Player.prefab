@@ -193,6 +193,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 54915516518267620}
+  animator: {fileID: 95360981834005326}
+  RuntimeAnim1: {fileID: 0}
+  RuntimeAnim2: {fileID: 0}
   speed: 5
 --- !u!114 &114885518162417678
 MonoBehaviour:
@@ -205,6 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7346e447c181f97499af371c80adf360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offset: 0.5
 --- !u!135 &135076672309485380
 SphereCollider:
   m_ObjectHideFlags: 1

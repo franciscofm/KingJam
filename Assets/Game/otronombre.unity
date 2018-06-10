@@ -170,8 +170,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 146edb83706b5e64e82ee40b5fcf9793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerP: {fileID: 1126227166505154, guid: 40c367061172f8a499a1d2744c2bc4be, type: 2}
   enemyP: {fileID: 1851985537765506, guid: d38caa2e3c977e5468b2f12cd2ff40b9, type: 2}
-  playerT: {fileID: 0}
+  playerT: {fileID: 576088890}
   spawnT: {fileID: 1865665222}
   floorT: {fileID: 1337819439}
   pipeT: {fileID: 2065780092}
@@ -560,12 +561,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4063836880715648, guid: 40c367061172f8a499a1d2744c2bc4be, type: 2}
       propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114885518162417678, guid: 40c367061172f8a499a1d2744c2bc4be,
-        type: 2}
-      propertyPath: offset
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 40c367061172f8a499a1d2744c2bc4be, type: 2}
@@ -795,5 +791,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}

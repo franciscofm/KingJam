@@ -37,21 +37,28 @@ namespace Game {
 		}
 		IEnumerator RetargetRoutine() {
 			yield return new WaitForSeconds (retargetTime);
-			delayedPos = target.position;
-			if (sprayed) {
-				delayedPos.x += Random.Range (-distance, distance);
-				delayedPos.z += Random.Range (-distance, distance);
-			}
+            if (target != null)
+            {
+                delayedPos = target.position;
+                if (sprayed)
+                {
+                    delayedPos.x += Random.Range(-distance, distance);
+                    delayedPos.z += Random.Range(-distance, distance);
+                }
+            }
 		}
 		
 		// Update is called once per frame
 		void Update () {
-			Vector3 target = (!delayed) ? this.target.position : delayedPos;
-			Vector3 dir = (target - transform.position);
-			dir.y = 0f;
-			dir.Normalize ();
-			body.AddForce (force = (dir * speed));
-		}
+            if (this.target != null)
+            {
+                Vector3 target = (!delayed) ? this.target.position : delayedPos;
+                Vector3 dir = (target - transform.position);
+                dir.y = 0f;
+                dir.Normalize();
+                body.AddForce(force = (dir * speed));
+            }
+    	}
 
 		[Header("LevelUp stats")]
 		public float speed1 = 7f;
