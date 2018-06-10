@@ -75,8 +75,11 @@ namespace Menu {
 		public void PressLicense() {
 
 		}
+		public GameObject creditsPanel;
+		public bool creditsShown = false;
 		public void PressCredits() {
-
+			creditsShown = !creditsShown;
+			creditsPanel.SetActive (creditsShown);
 		}
 	}
 }
