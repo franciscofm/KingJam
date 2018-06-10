@@ -42,7 +42,7 @@ namespace Game
         public void Start() { if (debug) StartGame(); }
 		public void StartGame() {
 			pipeS = pipeT.GetComponent<Pipe> ();
-			pipeS.StartGame ();
+            pipeS.StartGame ();
 			playerS = playerT.GetComponent<Player> ();
 			floorS = floorT.GetComponent<Floor> ();
 			parallaxS = parallaxT.GetComponent<Parallax> ();
@@ -82,6 +82,10 @@ namespace Game
 		public void PlayerLost() {
             pipeS.playing = false;
             finished = true;
+            Menu.Controller.instance.Reset(delegate
+            {
+                Restart();
+            });
         }
 		void Restart() {
             while (enemiesS.Count != 0)
@@ -94,7 +98,8 @@ namespace Game
 			floorS.LevelUp(0);
 			parallaxS.LevelUp (0);
             pipeS.playing = true;
-            finished = false;
+            level = 0;
+            gameTime = 0f;
         }
 	}
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -35,7 +36,7 @@ namespace Menu {
 			StartGame ();
 		}
 
-		public void Reset() {
+		public void Reset(Action callback = null) {
 			holdImage.sprite = playNormal;
 			starting = false;
 			inMain = true;
@@ -45,6 +46,7 @@ namespace Menu {
 			tuto3.SetActive (false);
 			tuto4.SetActive (false);
 			show.SetActive (true);
+            if (callback != null) callback();
 		}
 		void StartGame() {
 			show.SetActive (false);

@@ -82,7 +82,6 @@ public class Pipe : MonoBehaviour, ILevelUp {
 			if (playerT == null) {
 				playing = false;
 				StopAllCoroutines ();
-				Debug.Log ("Pipe STOP: Lost player target");
 				return;
 			}
 			transform.position = Vector3.Lerp (transform.position, targetT.position, Time.deltaTime * speed);
