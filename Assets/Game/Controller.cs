@@ -4,8 +4,9 @@ using UnityEngine;
 namespace Game
 {
     public class Controller : MonoBehaviour {
-
-		public GameObject playerP;
+        public bool debug = true;
+        [HideInInspector] public bool gameStarted = false;
+        public GameObject playerP;
 		public GameObject enemyP;
         public Transform playerT;
 		public Transform spawnT;
@@ -38,7 +39,7 @@ namespace Game
 			instance = this;
             FixSpriteRotation.floor = floorT;
         }
-
+        public void Start() { if (debug) StartGame(); }
 		public void StartGame() {
 			playerS = playerT.GetComponent<Player> ();
 			pipeS = pipeT.GetComponent<Pipe> ();
@@ -52,22 +53,21 @@ namespace Game
 			level = 0;
 			finished = false;
 			pipeS.StartGame ();
+            gameStarted = true;
 		}
 		void Update() {
-            if (!finished)
+            if (!finished && gameStarted)
             {
                 gameTime += Time.deltaTime;
-                if (!finished)
+                if (gameTime > TimeLevels[level])
                 {
-                    if (gameTime > TimeLevels[level])
+                    ++level;
+                    LevelUp();
+                    if (level >= TimeLevels.Length)
                     {
-                        ++level;
-                        LevelUp();
-                        if (level >= TimeLevels.Length)
-                        {
-                            finished = true;
-                            return;
-                        }
+                        print("Reached max level");
+                        finished = true;
+                        return;
                     }
                 }
             }
