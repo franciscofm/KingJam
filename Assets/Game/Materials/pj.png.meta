@@ -1,10 +1,11 @@
 fileFormatVersion: 2
-guid: b6e16c8e3d8bc6146b5ffd9a3ca3c600
+guid: 4702713165517d240a45b077bd4a2580
 TextureImporter:
   fileIDToRecycleName:
-    21300000: enemy_0
-    21300002: enemy_1
-    21300004: enemy_2
+    21300000: _0000_burn
+    21300002: _0001_hurt
+    21300004: _0002_pj01
+    21300006: _0003_pj02
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -44,7 +45,7 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 0
-  alignment: 0
+  alignment: 7
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
@@ -67,54 +68,80 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemy_0
+      name: _0000_burn
       rect:
         serializedVersion: 2
-        x: 0
-        y: 652
-        width: 302
-        height: 370
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1291
+        y: 1305
+        width: 1287
+        height: 741
+      alignment: 9
+      pivot: {x: 0.52020204, y: 0.49190283}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
     - serializedVersion: 2
-      name: enemy_1
+      name: _0001_hurt
+      rect:
+        serializedVersion: 2
+        x: 2580
+        y: 1305
+        width: 1023
+        height: 741
+      alignment: 9
+      pivot: {x: 0.52834797, y: 0.49190283}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: _0002_pj01
       rect:
         serializedVersion: 2
         x: 2
-        y: 335
-        width: 300
-        height: 317
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 1293
+        width: 1287
+        height: 753
+      alignment: 9
+      pivot: {x: 0.52020204, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
     - serializedVersion: 2
-      name: enemy_2
+      name: _0003_pj02
       rect:
         serializedVersion: 2
-        x: 0
-        y: 77
-        width: 302
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2
+        y: 550
+        width: 1339
+        height: 741
+      alignment: 9
+      pivot: {x: 0.5, y: 0.49190283}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
     outline: []
     physicsShape: []
   spritePackingTag: 
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+
+  
