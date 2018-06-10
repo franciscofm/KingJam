@@ -65,7 +65,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1141708655223092
 GameObject:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
@@ -78,10 +78,10 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1161115887305436
 GameObject:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
@@ -94,7 +94,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1316990094857592
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,7 +318,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1725554576192730
 GameObject:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
@@ -331,7 +331,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1763837796391678
 GameObject:
   m_ObjectHideFlags: 1
@@ -388,7 +388,7 @@ GameObject:
   m_IsActive: 0
 --- !u!1 &1879811059784540
 GameObject:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
@@ -401,7 +401,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1912949189580968
 GameObject:
   m_ObjectHideFlags: 1
@@ -1329,8 +1329,8 @@ RectTransform:
   - {fileID: 224608413752213488}
   - {fileID: 224152117642505296}
   - {fileID: 224684454320806928}
-  m_Father: {fileID: 224542305333799392}
-  m_RootOrder: 5
+  m_Father: {fileID: 224888971498719014}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1433,15 +1433,15 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1879811059784540}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224823309033637082}
   - {fileID: 224947452328063308}
   - {fileID: 224410537632449386}
-  m_Father: {fileID: 224542305333799392}
-  m_RootOrder: 4
+  m_Father: {fileID: 224888971498719014}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1462,12 +1462,8 @@ RectTransform:
   - {fileID: 224718704318863118}
   - {fileID: 224634246809807620}
   - {fileID: 4755412590489270}
-  - {fileID: 224500938085558358}
-  - {fileID: 224035382317480890}
-  - {fileID: 224853692217178708}
-  - {fileID: 224807272902732292}
   m_Father: {fileID: 224888971498719014}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1651,8 +1647,8 @@ RectTransform:
   m_Children:
   - {fileID: 224591898791311306}
   - {fileID: 224556353942791060}
-  m_Father: {fileID: 224542305333799392}
-  m_RootOrder: 7
+  m_Father: {fileID: 224888971498719014}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1690,8 +1686,8 @@ RectTransform:
   - {fileID: 224246745549742642}
   - {fileID: 224613894348037742}
   - {fileID: 224913171911929044}
-  m_Father: {fileID: 224542305333799392}
-  m_RootOrder: 6
+  m_Father: {fileID: 224888971498719014}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1708,6 +1704,10 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 224500938085558358}
+  - {fileID: 224035382317480890}
+  - {fileID: 224853692217178708}
+  - {fileID: 224807272902732292}
   - {fileID: 224542305333799392}
   m_Father: {fileID: 0}
   m_RootOrder: 0

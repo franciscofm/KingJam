@@ -47,16 +47,16 @@ namespace Menu {
 		}
 		IEnumerator StartGameRoutine() {
 			tuto1.SetActive (true);
-			yield return new WaitForSecondsRealtime (1f);
+			yield return new WaitForSecondsRealtime (1.5f);
 			tuto1.SetActive (false);
 			tuto2.SetActive (true);
-			yield return new WaitForSecondsRealtime (1f);
+			yield return new WaitForSecondsRealtime (1.5f);
 			tuto2.SetActive (false);
 			tuto3.SetActive (true);
-			yield return new WaitForSecondsRealtime (1f);
+			yield return new WaitForSecondsRealtime (1.5f);
 			tuto3.SetActive (false);
 			tuto4.SetActive (true);
-			yield return new WaitForSecondsRealtime (1f);
+			yield return new WaitForSecondsRealtime (1.5f);
 			tuto4.SetActive (false);
 			Game.Controller.instance.StartGame ();
 		}

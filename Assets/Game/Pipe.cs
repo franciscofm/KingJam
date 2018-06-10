@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Pipe : MonoBehaviour, ILevelUp {
-	[Header("References")]
+	[Header("Scene References")]
 	public Transform floorT;
 	public Transform spawnT;
 	public Transform targetT;
 	public Transform playerT;
-
+	[Header("Prefabs")]
+	public GameObject playerP;
 	public GameObject enemyP;
 	public GameObject bombP;
 
@@ -31,6 +32,11 @@ public class Pipe : MonoBehaviour, ILevelUp {
 		StartCoroutine (StartGameRoutine ());
 		StartCoroutine (MoveRoutine ());
 	}
+
+	void SpawnPlayer() {
+
+	}
+
 	IEnumerator StartGameRoutine() {
 		yield return new WaitForSeconds (spawnStart);
 		StartCoroutine (SpawnRoutine ());
