@@ -140,6 +140,7 @@ public class Pipe : MonoBehaviour, ILevelUp {
 		if (to < chancesToBomb.Length && to < chancesToExplosion.Length) {
 			chanceToBomb = chancesToBomb [to];
 			chanceExplosion = chancesToExplosion [to];
+			Debug.Log ("New chances: " + chanceToBomb + ", " + chancesToExplosion);
 		}
 		switch (to)
 		{

@@ -68,6 +68,7 @@ namespace Game {
 
 		void OnTriggerEnter(Collider col) {
 			transform.parent = col.gameObject.transform;
+			transform.localScale = Vector3.one;
 			Destroy (GetComponent<Rigidbody> ());
 		}
 

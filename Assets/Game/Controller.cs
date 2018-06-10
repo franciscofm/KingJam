@@ -77,6 +77,7 @@ namespace Game
                 enemiesS[i].LevelUp(level);
             floorS.LevelUp(level);
 			parallaxS.LevelUp (level);
+			pipeS.LevelUp (level);
 		}
 
 		public void PlayerLost() {
