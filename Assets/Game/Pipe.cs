@@ -31,11 +31,14 @@ public class Pipe : MonoBehaviour, ILevelUp {
 		playing = true;
 		StartCoroutine (StartGameRoutine ());
 		StartCoroutine (MoveRoutine ());
+        SpawnPlayer();
 	}
 
 	void SpawnPlayer() {
-
-	}
+        playerT = Instantiate(playerP).transform;
+        playerT.position = spawnT.position;
+        Game.Controller.instance.playerT = playerT;
+    }
 
 	IEnumerator StartGameRoutine() {
 		yield return new WaitForSeconds (spawnStart);
@@ -123,10 +126,13 @@ public class Pipe : MonoBehaviour, ILevelUp {
 		random = false;
 	}
 	void ReasignPipePlayer() {
-		Vector3 newPos = playerT.position;
-		newPos.y = yPos;
-		targetT.position = newPos;
-		random = false;
+        if (playing)
+        {
+            Vector3 newPos = playerT.position;
+            newPos.y = yPos;
+            targetT.position = newPos;
+            random = false;
+        }
 	}
 
 	public float[] chancesToBomb = new float[]{ 0f, 0f, 0.1f, 0.15f };

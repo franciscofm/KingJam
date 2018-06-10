@@ -185,9 +185,15 @@ MonoBehaviour:
   sprayed: 0
   distance: 0
   retargetTime: 3
-  level1: {fileID: 9100000, guid: ce9c22b7be50d094c8f8eedcaf614f2d, type: 2}
-  level2: {fileID: 9100000, guid: ce9c22b7be50d094c8f8eedcaf614f2d, type: 2}
   animator: {fileID: 95504718089369848}
+  speed1: 7
+  speedError1: 1
+  speed2: 8
+  speedError2: 1.5
+  chanceToDelayed1: 0.1
+  chanceToDelayed2: 0.1
+  chanceToSprayed1: 0.15
+  chanceToSprayed2: 0.1
 --- !u!135 &135647956793134220
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -240,7 +246,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.52, y: 2}
+  m_Size: {x: 3, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
