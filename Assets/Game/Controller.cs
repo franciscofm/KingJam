@@ -1,12 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Game {
-	public class Controller : MonoBehaviour {
+namespace Game
+{
+    public class Controller : MonoBehaviour {
 
+		public GameObject playerP;
 		public GameObject enemyP;
-		public Transform playerT;
+        public Transform playerT;
 		public Transform spawnT;
 		public Transform floorT;
 		public Transform pipeT;
@@ -71,10 +72,21 @@ namespace Game {
 		}
 
 		public void PlayerLost() {
-
-		}
+            pipeS.playing = false;
+            finished = true;
+        }
 		void Restart() {
-
-		}
+            while (enemiesS.Count != 0)
+            {
+                Destroy(enemiesS[0].gameObject);
+                enemiesS.RemoveAt(0);
+            }
+            pipeT.position = pipeStartPos;
+            pipeS.LevelUp(0);
+            floorS.LevelUp(0);
+            playerT = Instantiate(playerP).transform;
+            pipeS.playing = true;
+            finished = false;
+        }
 	}
 }

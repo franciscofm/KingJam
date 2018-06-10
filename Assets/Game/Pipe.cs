@@ -13,7 +13,7 @@ public class Pipe : MonoBehaviour, ILevelUp {
 	public GameObject bombP;
 
 
-	bool playing;
+	public bool playing;
 	[Header("Spawn")]
 	public float spawnStart = 5f;
 	public float spawnTime = 4f;

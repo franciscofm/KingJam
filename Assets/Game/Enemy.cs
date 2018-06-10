@@ -101,6 +101,12 @@ namespace Game {
             }
 
 			if (!delayedBefore && delayed) {
+                if (target == null)
+                {
+                    delayed = false;
+                    sprayed = false;
+                    return;
+                }
 				delayedPos = target.position;
 				StartCoroutine(RetargetRoutine());
 				if (sprayed) {
