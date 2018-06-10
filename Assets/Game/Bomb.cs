@@ -32,7 +32,7 @@ namespace Game {
 		}
 
 		IEnumerator Ignite() {
-			//animator.Play ("Delay");
+			animator.Play (DelayAnimation);
 			yield return new WaitForSeconds (delay);
 			StartCoroutine (IgniteRoutine ());
 		}
