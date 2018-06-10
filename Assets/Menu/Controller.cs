@@ -11,6 +11,11 @@ namespace Menu {
 		public Sprite playNormal;
 		public float startGameWait = 3f;
 		public GameObject escPanel;
+		public GameObject show;
+		public GameObject tuto1;
+		public GameObject tuto2;
+		public GameObject tuto3;
+		public GameObject tuto4;
 		//public Animator animator;
 
 		public bool blocked, holding, starting;
@@ -30,8 +35,29 @@ namespace Menu {
 			starting = false;
 			inMain = true;
 			escPanel.SetActive (false);
+			tuto1.SetActive (true);
+			tuto2.SetActive (true);
+			tuto3.SetActive (true);
+			tuto4.SetActive (true);
+			show.SetActive (true);
 		}
 		void StartGame() {
+			show.SetActive (false);
+			StartCoroutine (StartGameRoutine ());
+		}
+		IEnumerator StartGameRoutine() {
+			tuto1.SetActive (true);
+			yield return new WaitForSecondsRealtime (1f);
+			tuto1.SetActive (false);
+			tuto2.SetActive (true);
+			yield return new WaitForSecondsRealtime (1f);
+			tuto2.SetActive (false);
+			tuto3.SetActive (true);
+			yield return new WaitForSecondsRealtime (1f);
+			tuto3.SetActive (false);
+			tuto4.SetActive (true);
+			yield return new WaitForSecondsRealtime (1f);
+			tuto4.SetActive (false);
 			Game.Controller.instance.StartGame ();
 		}
 
