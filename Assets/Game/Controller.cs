@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Game
 {
     public class Controller : MonoBehaviour {
-
+        public bool debug = true;
 		public GameObject playerP;
 		public GameObject enemyP;
         public Transform playerT;
@@ -38,7 +38,7 @@ namespace Game
 			instance = this;
             FixSpriteRotation.floor = floorT;
         }
-
+        public void Start() { if (debug) StartGame(); }
 		public void StartGame() {
 			playerS = playerT.GetComponent<Player> ();
 			pipeS = pipeT.GetComponent<Pipe> ();

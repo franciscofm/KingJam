@@ -24,12 +24,10 @@ namespace Game {
             if (Mathf.Abs(force.magnitude) > 0)
             {
                 animator.Play("walk_" + currentLevel);
-                print("walk_" + currentLevel);
             }
             else
             {
                 animator.Play("idle_" + currentLevel);
-                print("idle_" + currentLevel);
             }
         }
 
