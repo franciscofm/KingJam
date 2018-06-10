@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
-public class Parallax : MonoBehaviour {
+public class Parallax : MonoBehaviour, ILevelUp {
 
 	public enum Type { Vertical, Horizontal }
 	public enum Direction { Positive, Negative }
@@ -11,7 +11,12 @@ public class Parallax : MonoBehaviour {
 	public Direction direction = Direction.Positive;
 	public float speed;
 
+	public Sprite level0Sprite;
+	public Sprite level1Sprite;
+	public Sprite level2Sprite;
+
 	[Header("Debug")]
+	public SpriteRenderer sr;
 	public float distance;
 	public Vector3 _speed;
 	public Transform[] items;
@@ -19,8 +24,15 @@ public class Parallax : MonoBehaviour {
 	public Vector3 center;
 	public Vector3 outside;
 
+	public void LevelUp(int to) {
+		if (to == 0) sr.sprite = level0Sprite;
+		else if (to == 1) sr.sprite = level1Sprite;
+		else if (to == 2) sr.sprite = level2Sprite;
+	}
+
 	// Use this for initialization
 	void Start () {
+		sr = GetComponent<SpriteRenderer> ();
 		center = transform.position;
 		Vector2 size =  0.9f * transform.localScale.x * GetComponent<SpriteRenderer>().size;
 		distance = (type == Type.Horizontal) ? size.x : size.y;

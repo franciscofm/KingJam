@@ -11,6 +11,7 @@ namespace Game
 		public Transform spawnT;
 		public Transform floorT;
 		public Transform pipeT;
+		public Transform parallaxT;
 		public static Controller instance;
 
 		Vector3 pipeStartPos, playerStartPos;
@@ -20,6 +21,7 @@ namespace Game
 		public bool finished;
 
 		[HideInInspector] public Player playerS;
+		[HideInInspector] public Parallax parallaxS;
 		[HideInInspector] public List<Enemy> enemiesS = new List<Enemy>();
 		[HideInInspector] public Pipe pipeS;
 		[HideInInspector] public Floor floorS;
@@ -37,10 +39,11 @@ namespace Game
             FixSpriteRotation.floor = floorT;
         }
 
-		void Start() {
+		public void StartGame() {
 			playerS = playerT.GetComponent<Player> ();
 			pipeS = pipeT.GetComponent<Pipe> ();
 			floorS = floorT.GetComponent<Floor> ();
+			parallaxS = parallaxT.GetComponent<Parallax> ();
 
 			pipeStartPos = pipeT.position;
 			playerStartPos = playerT.position;
@@ -69,6 +72,7 @@ namespace Game
                 enemiesS[i].LevelUp(level);
             //pipeS.LevelUp();
             floorS.LevelUp(level);
+			parallaxS.LevelUp (level);
 		}
 
 		public void PlayerLost() {
@@ -83,7 +87,8 @@ namespace Game
             }
             pipeT.position = pipeStartPos;
             pipeS.LevelUp(0);
-            floorS.LevelUp(0);
+			floorS.LevelUp(0);
+			parallaxS.LevelUp (0);
             playerT = Instantiate(playerP).transform;
             pipeS.playing = true;
             finished = false;
