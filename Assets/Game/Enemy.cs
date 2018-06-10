@@ -10,8 +10,6 @@ namespace Game {
 		public bool sprayed;
 		public float distance;
 		public float retargetTime = 3f;
-        public RuntimeAnimatorController level1;
-        public RuntimeAnimatorController level2;
         public Animator animator;
         Vector3 force = Vector3.zero;
 
@@ -72,8 +70,9 @@ namespace Game {
 		public float chanceToSprayed2 = 0.1f;
 
 		public void LevelUp(int to) {
-			
-			bool delayedBefore = delayed;
+            animator.Play("buzz_walk_" + to);
+
+            bool delayedBefore = delayed;
 			bool sprayedBefore = sprayed;
 			float r;
 
@@ -81,7 +80,6 @@ namespace Game {
             case 0:
                 break;
 			case 1:
-				animator.runtimeAnimatorController = level1;
 				speed = speed1 + speedError1 * Random.Range (0f, 1f);
 				if (!delayedBefore) {
 					r = Random.Range (0f, 1f);
@@ -94,7 +92,6 @@ namespace Game {
                 break;
             case 2:
             default:
-				animator.runtimeAnimatorController = level2;
 				speed = speed1 + speedError2 * Random.Range (0f, 1f);
 				if (!delayedBefore) {
 					r = Random.Range (0f, 1f);

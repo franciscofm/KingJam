@@ -57,17 +57,14 @@ namespace Game
             if (!finished)
             {
                 gameTime += Time.deltaTime;
-                if (!finished)
+                if (gameTime > TimeLevels[level])
                 {
-                    if (gameTime > TimeLevels[level])
+                    ++level;
+                    LevelUp();
+                    if (level >= TimeLevels.Length)
                     {
-                        ++level;
-                        LevelUp();
-                        if (level >= TimeLevels.Length)
-                        {
-                            finished = true;
-                            return;
-                        }
+                        finished = true;
+                        return;
                     }
                 }
             }
