@@ -54,20 +54,26 @@ namespace Game
 			pipeS.StartGame ();
 		}
 		void Update() {
-			gameTime += Time.deltaTime;
-			if (!finished) {
-				if (gameTime > TimeLevels [level]) {
-					++level;
-					LevelUp (); 
-					if (level >= TimeLevels.Length) {
-						finished = true;
-						return;
-					}
-				}
-			}
+            if (!finished)
+            {
+                gameTime += Time.deltaTime;
+                if (!finished)
+                {
+                    if (gameTime > TimeLevels[level])
+                    {
+                        ++level;
+                        LevelUp();
+                        if (level >= TimeLevels.Length)
+                        {
+                            finished = true;
+                            return;
+                        }
+                    }
+                }
+            }
 		}
 		void LevelUp() {
-            //playerS.LevelUp ();
+            playerS.LevelUp(level);
             for (int i = 0; i < enemiesS.Count; ++i)
                 enemiesS[i].LevelUp(level);
             //pipeS.LevelUp();

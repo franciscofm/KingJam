@@ -6,9 +6,9 @@ namespace Game {
 	[RequireComponent(typeof(Rigidbody))]
 	public class Player : IForce, ILevelUp {
 
+        int currentLevel = 0;
+
 		public Animator animator;
-		public RuntimeAnimatorController RuntimeAnim1;
-		public RuntimeAnimatorController RuntimeAnim2;
 
         Vector3 force = Vector3.zero;
 		public float speed;
@@ -21,20 +21,20 @@ namespace Game {
 		void Update () {
 			Vector3 dir = new Vector3 (Input.GetAxis ("Horizontal"), 0f, Input.GetAxis ("Vertical"));
 			body.AddForce(force = (speed * dir));
-		}
+            if (Mathf.Abs(force.magnitude) > 0)
+            {
+                animator.Play("walk_" + currentLevel);
+                print("walk_" + currentLevel);
+            }
+            else
+            {
+                animator.Play("idle_" + currentLevel);
+                print("idle_" + currentLevel);
+            }
+        }
 
         public void LevelUp(int to) {
-			switch (to) {
-			case 0:
-				break;
-			case 1:
-				animator.runtimeAnimatorController = RuntimeAnim1;
-				break;
-			case 2:
-			default:
-				animator.runtimeAnimatorController = RuntimeAnim2;
-				break;
-			}
+            currentLevel = to;
         }
 
         override public Vector3 getForce() {

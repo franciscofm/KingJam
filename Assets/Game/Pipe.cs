@@ -71,7 +71,7 @@ public class Pipe : MonoBehaviour, ILevelUp {
 	public int clearIterations = 0;
 	public int maxClearIterations = 50;
 	IEnumerator MoveRoutine() {
-		while (true) {
+		while (playing) {
 			while (random) {
 				yield return new WaitForSeconds (randomWait);
 				float r = Random.Range (0f, 1f);

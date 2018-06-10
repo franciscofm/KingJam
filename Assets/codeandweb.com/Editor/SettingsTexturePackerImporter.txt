@@ -3,12 +3,12 @@ importPivots: 1
 tpsheetFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites.tpsheet
 - Assets/Game/Materials/enemyINK.tpsheet
-- Assets/Game/Materials/pj.tpsheet
+- Assets/Game/Materials/pj_nivel_0/pj.tpsheet
 - Assets/Menu/ui.tpsheet
 textureFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites.png
 - Assets/Game/Materials/enemyINK.png
-- Assets/Game/Materials/pj.png
+- Assets/Game/Materials/pj_nivel_0/pj.png
 - Assets/Menu/ui.png
 normalmapFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites_n.png
