@@ -5,7 +5,8 @@ namespace Game
 {
     public class Controller : MonoBehaviour {
         public bool debug = true;
-		public GameObject playerP;
+        [HideInInspector] public bool gameStarted = false;
+        public GameObject playerP;
 		public GameObject enemyP;
         public Transform playerT;
 		public Transform spawnT;
@@ -52,9 +53,10 @@ namespace Game
 			level = 0;
 			finished = false;
 			pipeS.StartGame ();
+            gameStarted = true;
 		}
 		void Update() {
-            if (!finished)
+            if (!finished && gameStarted)
             {
                 gameTime += Time.deltaTime;
                 if (gameTime > TimeLevels[level])
@@ -63,6 +65,7 @@ namespace Game
                     LevelUp();
                     if (level >= TimeLevels.Length)
                     {
+                        print("Reached max level");
                         finished = true;
                         return;
                     }
