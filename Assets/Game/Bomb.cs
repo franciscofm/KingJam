@@ -13,11 +13,22 @@ namespace Game {
 		public Type type = Type.Explosion;
 		public float delay = 3f;
 		public float duration = 3f;
+		public float dieWait = 1f;
 		public float range = 1f;
 		public float force = 1f;
 
-		void Start() {
-			StartCoroutine (Ignite ());
+		public void SetType(Type type) {
+			this.type = type;
+			if (type == Type.Explosion) {
+				DelayAnimation += "_1";
+				IgniteAnimation += "_1";
+				ExplodeAnimation += "_1";
+			} else {
+				DelayAnimation += "_2";
+				IgniteAnimation += "_2";
+				ExplodeAnimation += "_2";
+			}
+			StartCoroutine (Ignite());
 		}
 
 		IEnumerator Ignite() {
@@ -28,9 +39,9 @@ namespace Game {
 		IEnumerator IgniteRoutine() {
 			animator.Play ("Ignite");
 			yield return new WaitForSeconds (duration);
-			Explode ();
+			StartCoroutine(Explode ());
 		}
-		void Explode() {
+		IEnumerator Explode() {
 			animator.Play ("Explode");
 			List<Enemy> enemies = Controller.instance.enemiesS;
 			for (int i = 0; i < enemies.Count; ++i) {
@@ -51,6 +62,8 @@ namespace Game {
 					transform.position - Controller.instance.playerT.position;
 				Controller.instance.playerS.Push (force, dir2.normalized);
 			}
+			yield return new WaitForSeconds (dieWait);
+			Destroy (gameObject);
 		}
 
 		public void LevelUp(int to) {

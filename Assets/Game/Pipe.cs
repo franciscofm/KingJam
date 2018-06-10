@@ -42,10 +42,25 @@ public class Pipe : MonoBehaviour, ILevelUp {
 			yield return new WaitForSeconds (spawnTime);
 		}
 	}
+	float chanceToBomb = 0f;
+	float chanceExplosion = 1f;
 	void SpawnEnemy() {
-		GameObject t = Instantiate (enemyP);
+		float r = Random.Range (0f, 1f);
+		if (r > chanceToBomb) {
+			GameObject t = Instantiate (enemyP);
+			t.transform.position = spawnT.position;
+			Game.Controller.instance.NewEnemy (t.GetComponent<Game.Enemy> ());
+		} else
+			SpawnBomb ();
+	}
+	void SpawnBomb() {
+		GameObject t = Instantiate (bombP);
 		t.transform.position = spawnT.position;
-        Game.Controller.instance.NewEnemy(t.GetComponent<Game.Enemy>());
+		float r = Random.Range (0f, 1f);
+		if (r > chanceExplosion)
+			t.GetComponent<Game.Bomb>().type = Game.Bomb.Type.Implosion;
+		else
+			t.GetComponent<Game.Bomb>().type = Game.Bomb.Type.Explosion;
 	}
 
 	[Header("Movement")]
@@ -108,7 +123,13 @@ public class Pipe : MonoBehaviour, ILevelUp {
 		random = false;
 	}
 
+	public float[] chancesToBomb = new float[]{ 0f, 0f, 0.1f, 0.15f };
+	public float[] chancesToExplosion = new float[]{ 0f, 0f, 0.3f, 0.4f };
 	public void LevelUp(int to) {
+		if (to < chancesToBomb.Length && to < chancesToExplosion.Length) {
+			chanceToBomb = chancesToBomb [to];
+			chanceExplosion = chancesToExplosion [to];
+		}
 		switch (to)
 		{
 		case 1:
