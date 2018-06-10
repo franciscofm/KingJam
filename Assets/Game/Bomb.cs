@@ -66,6 +66,11 @@ namespace Game {
 			Destroy (gameObject);
 		}
 
+		void OnTriggerEnter(Collider col) {
+			transform.parent = col.gameObject.transform;
+			Destroy (GetComponent<Rigidbody> ());
+		}
+
 		public void LevelUp(int to) {
 
 		}
