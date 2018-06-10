@@ -23,13 +23,13 @@ namespace Game {
 			body.AddForce(force = (speed * dir));
             if (Mathf.Abs(force.magnitude) > 0)
             {
-                animator.Play("walk_" + (currentLevel + 1));
-                print("walk_" + (currentLevel + 1));
+                animator.Play("walk_" + currentLevel);
+                print("walk_" + currentLevel);
             }
             else
             {
-                animator.Play("idle_" + (currentLevel + 1));
-                print("idle_" + (currentLevel + 1));
+                animator.Play("idle_" + currentLevel);
+                print("idle_" + currentLevel);
             }
         }
 
