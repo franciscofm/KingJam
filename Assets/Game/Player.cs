@@ -26,7 +26,7 @@ namespace Game {
             if (Mathf.Abs(force.magnitude) > 0)
             {
                 animator.Play("walk_" + currentLevel);
-                corre.Play();
+                //corre.Play();
             }
             else
             {

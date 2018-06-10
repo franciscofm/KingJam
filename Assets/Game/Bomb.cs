@@ -32,17 +32,17 @@ namespace Game {
 		}
 
 		IEnumerator Ignite() {
-			animator.Play ("Delay");
+			//animator.Play ("Delay");
 			yield return new WaitForSeconds (delay);
 			StartCoroutine (IgniteRoutine ());
 		}
 		IEnumerator IgniteRoutine() {
-			animator.Play ("Ignite");
+			animator.Play (IgniteAnimation);
 			yield return new WaitForSeconds (duration);
 			StartCoroutine(Explode ());
 		}
 		IEnumerator Explode() {
-			animator.Play ("Explode");
+			animator.Play (ExplodeAnimation);
 			List<Enemy> enemies = Controller.instance.enemiesS;
 			for (int i = 0; i < enemies.Count; ++i) {
 				float dist = Vector3.Distance (enemies [i].transform.position, transform.position);
@@ -54,6 +54,11 @@ namespace Game {
 					enemies [i].Push (force, dir.normalized);
 				}
 			}
+            if(Controller.instance.playerT == null)
+            {
+                Destroy(gameObject);
+                yield break;
+            }
 			float dist2 = Vector3.Distance (Controller.instance.playerT.position, transform.position);
 			if (dist2 < range) {
 				Vector3 dir2 = 
